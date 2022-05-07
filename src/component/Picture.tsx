@@ -10,19 +10,19 @@ const GalleryPicture = (props: Picture): JSX.Element => {
 
   switch (index) {
     case 0:
-      imgContCondFormat = 'sm:h-full sm:w-full sm:row-[span_8] sm:col-span-3';
+      imgContCondFormat = 'sm:h-full sm:w-full sm:row-[span_8] sm:col-span-3 lg:row-span-4 lg:col-span-2';
       break;
 
     case 1:
-      imgContCondFormat = 'sm:h-full sm:w-full sm:row-[span_10] sm:col-span-1';
+      imgContCondFormat = 'sm:h-full sm:w-full sm:row-[span_10] sm:col-span-1 lg:row-span-4 lg:col-span-2';
       break;
 
     case 2:
-      imgContCondFormat = 'sm:w-full sm:row-[span_5] sm:col-[span_2]';
+      imgContCondFormat = 'sm:w-full sm:h-full sm:row-span-5 sm:col-span-2 lg:row-span-4';
       break;
 
     case 3:
-      imgContCondFormat = 'sm:w-full sm:row-[span_5] sm:col-[span_2]';
+      imgContCondFormat = 'sm:w-full sm:h-full sm:row-span-5 sm:col-span-2 lg:row-span-4';
       break;
 
     default:
@@ -35,7 +35,7 @@ const GalleryPicture = (props: Picture): JSX.Element => {
         <Image src={image} alt={`${title} image`} layout='fill' className='rounded-3xl' objectFit='cover'/>
       </div>
       <h1 className='absolute mx-4 font-sans text-4xl font-bold text-white top-6'>{ title }</h1>
-      <p className='absolute mx-4 font-sans text-2xl text-white top-16'>{subtitle}</p>
+      <p className='absolute mx-4 font-sans text-2xl text-white aabsolute top-16'>{subtitle}</p>
     </div>
   );
 };

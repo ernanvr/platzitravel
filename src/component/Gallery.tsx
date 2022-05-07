@@ -25,7 +25,7 @@ const Gallery = (props: Props): JSX.Element => {
 
   return (
 
-    <div className='mx-8 mt-4 grid gap-5 lg:mx-12 sm:mx-8 sm:grid-cols-3 sm:grid-rows-[repeat(18,5rem)]'>
+    <div className='mx-8 mt-4 grid gap-5 sm:grid-cols-3 sm:grid-rows-[repeat(18,4rem)] lg:grid-rows-[repeat(8,9rem)] lg:grid-cols-4'>
       {buildGallery()}
     </div>
   );

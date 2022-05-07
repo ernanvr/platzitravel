@@ -5,6 +5,10 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
+    screens: {
+      'xs': '360px',
+      ...defaultTheme.screens
+    },
     extend: {
       backgroundImage: {
         'sanFrancisco': "url('../public/img/sanFrancisco.jpg')",
@@ -33,34 +37,8 @@ module.exports = {
         'secondary': '#8FA206',
         'tertiary': '#61AEC9'
       },
-      screens: {
-        'xs': '360px',
-        ...defaultTheme.screens
-      },
       fontFamily: {
         sans: ['Montserrat', defaultTheme.fontFamily.sans]
-      },
-      gridTemplateRows: {
-        '20': 'repeat(20, minmax(0,1fr))'
-      },
-      gridRowStart: {
-        '7': '7',
-        '8': '8',
-        '9': '9',
-        '10': '10',
-        '11': '11',
-        '12': '12',
-        '13': '13',
-      },
-      gridRowEnd: {
-        '14': '14',
-        '15': '15',
-        '16': '16',
-        '17': '17',
-        '18': '18',
-        '19': '19',
-        '20': '20',
-        '21': '21',
       },
     },
 
