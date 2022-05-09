@@ -3,28 +3,41 @@ import { HiMoon, HiSearch, HiUser } from 'react-icons/hi';
 import Link from 'next/link';
 
 const Header = (): JSX.Element => {
+
   return (
-    <header className='fixed top-0 z-10 hidden w-full h-16 bg-white sm:flex md:items-center flex-column'>
-      <nav className='flex items-center justify-between w-full h-full mx-8'>
+    <header className='fixed top-0 z-20 hidden w-full h-16 text-xl bg-white transition-all md:text-2xl sm:flex md:items-center flex-column'>
+      <nav className='flex items-center justify-between w-full h-full mx-8 '>
         <div>
-          <Link href='/'><a className='font-semibold text-primary'>Platzi Travel</a></Link>
+          <Link href='/'><a className='font-semibold transition-all hover:border-b-2 hover:border-red-500 text-primary'>Platzi Travel</a></Link>
         </div>
         <div className='flex items-center justify-center'>
-          <Link href='/'><a className='mx-8 font-semibold text-primary'>Locations</a></Link>
-          <Link href='/'><a className='mx-8 font-semibold text-primary'>Stays</a></Link>
-          <Link href='/'><a className='mx-8 font-semibold text-primary'>FAQs</a></Link>
-          <Link href='/'><a className='mx-8 font-semibold text-primary'>About us</a></Link>
+          <Link href='#recomendations'><a className='mx-8 font-semibold transition-all sm:mx-4 text-primary hover:border-b-2 hover:border-red-500'>Locations</a></Link>
+          <Link href='#trending'><a className='mx-8 font-semibold transition-all sm:mx-4 text-primary hover:border-b-2 hover:border-red-500'>Stays</a></Link>
+          <Link href='#faqs'><a className='mx-8 font-semibold transition-all sm:mx-4 text-primary hover:border-b-2 hover:border-red-500'>FAQs</a></Link>
+          <Link href='#footer'><a className='mx-8 font-semibold transition-all sm:mx-4 text-primary hover:border-b-2 hover:border-red-500'>About us</a></Link>
         </div>
           <div className='flex justify-center'>
-            <div className='h-10'>
-              <HiSearch className='w-10 h-10 mx-4 text-red-700'/>
+            <div className='w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 hover:border-b-2 hover:border-red-500 transition-all'>
+              <Link href='/'>
+                <a>
+                  <HiSearch className='w-full h-full'/>
+                </a>
+              </Link>
             </div>
-            <div className='h-10'>
-              <HiMoon className='w-10 h-10 mx-4 text-red-700'/>
+            <div className='w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 hover:border-b-2 hover:border-red-500 transition-all' >
+              <Link href='/'>
+                <a>
+                  <HiMoon className='w-full h-full'/>
+                </a>
+              </Link>
             </div>
-            <div className='h-10'>
-              <HiUser className='w-10 h-10 mx-4 text-red-700'/>
-            </div>
+              <div className='w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 hover:border-b-2 hover:border-red-500 transition-all'>
+                <Link href='/'>
+                  <a>
+                    <HiUser className='w-full h-full'/>
+                  </a>
+                </Link>
+              </div>
           </div>
       </nav>
     </header>

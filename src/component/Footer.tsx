@@ -5,12 +5,13 @@ import { FaTwitter } from 'react-icons/fa';
 import TabBar from './TabBar';
 
 const Footer: React.FC = () => {
+
 	return (
     <>
-		<footer className='text-gray-300 bg-gray-50 border-y-[1px] border-gray-100'>
-			<h1 className='mt-4 mb-4 text-3xl font-medium'>About us</h1>
+		<footer id='footer' className='text-gray-300 bg-gray-50 border-y-[1px] border-gray-100'>
+			<h1 className='mx-8 mt-4 mb-4 text-3xl font-medium'>About us</h1>
 
-      <div className='flex flex-col justify-start text-[1.4rem] leading-10'>
+      <div className='flex mx-8 flex-col justify-start text-[1.4rem] leading-10'>
         <Link href='/'><a>Investors</a></Link>
         <Link href='/'><a>Jobs</a></Link>
         <Link href='/'><a>Privacy Policy</a></Link>
@@ -18,7 +19,7 @@ const Footer: React.FC = () => {
         <Link href='/'><a>Platzi Travel, Inc</a></Link>
         <Link href='/'><a>Follow us</a></Link>
       </div>
-        <div className='flex justify-start mt-4 mb-28 sm:mb-4'>
+        <div className='flex justify-start mx-8 mt-4 mb-28 sm:mb-4'>
           <FaTwitter size={20} className='mr-4' />
           <FaInstagram size={20}/>
         </div>

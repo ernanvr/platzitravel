@@ -10,7 +10,7 @@ const Card = (props: CardInfo) => {
   const cardsFontTheme = index % 2 === 0 ? 'text-white' : 'text-tertiary';
 
   return (
-    <div className='min-w-[15.4rem] min-h-[18.7rem] mx-4 shadow-md mb-8 my-2 sm:min-h-[25.7rem] sm:min-w-[22.4rem] '>
+    <div className='min-w-[15.4rem] first:ml-8 min-h-[18.7rem] mx-4 shadow-md mb-8 my-2 sm:min-h-[25.7rem] sm:min-w-[22.4rem] hover:translate-y-4 hover:scale-105 transition-all '>
       <div className='w-full h-1/2 rounded-2xl'>
         <Image src={image} alt={`${title} image`} layout='responsive' className='rounded-t-xl' />
       </div>

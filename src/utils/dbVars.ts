@@ -6,6 +6,8 @@ import chicago from '../public/img/chicago.jpg';
 import la from '../public/img/LA.jpg';
 import miami from '../public/img/miami.jpg';
 import bali from '../public/img/bali.jpg';
+import seattle from '../public/img/seattle.jpg';
+import switzerland from '../public/img/switzerland.jpg';
 
 export const cardInfoArray: CardInfo[] = [
   {
@@ -25,26 +27,42 @@ export const cardInfoArray: CardInfo[] = [
     title: 'Yosemite',
     subtitle: 'A break from the world',
     image: yosemite
-  }
+  },
+  {
+    index: 0,
+    title: 'Seattle',
+    subtitle: 'Big city',
+    image: seattle
+  },
+  {
+    index: 0,
+    title: 'Switzerland',
+    subtitle: 'Big and beautiful country',
+    image: switzerland
+  },
 ];
 
 export const pictureInfoArray: Picture[] = [
   {
+    index: 0,
     title: 'Chicago',
     subtitle: '2 rooms, bathroom and kitchen',
     image: chicago
   },
   {
+    index: 0,
     title: 'Los Angeles',
     subtitle: '4 rooms, 3 bathrroms, kitchen and private pool.',
     image: la
   },
   {
+    index: 0,
     title: 'Miami',
     subtitle: '3 rooms, 2 bathrroms, kitchen and amazing sea view.',
     image: miami
   },
   {
+    index: 0,
     title: 'Bali',
     subtitle: '2 rooms, 2 bathrroms, kitchen and private pool.',
     image: bali

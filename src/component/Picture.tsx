@@ -34,7 +34,7 @@ const GalleryPicture = (props: Picture): JSX.Element => {
       <div className={'w-full h-full rounded-3xl '}>
         <Image src={image} alt={`${title} image`} layout='fill' className='rounded-3xl' objectFit='cover'/>
       </div>
-      <h1 className='absolute mx-4 font-sans text-4xl font-bold text-white top-6'>{ title }</h1>
+      <h1 className='absolute mx-4 font-sans text-4xl font-bold text-white top-6 hover:cursor-pointer hover:scale-105 transition-all'>{ title }</h1>
       <p className='absolute mx-4 font-sans text-2xl text-white aabsolute top-16'>{subtitle}</p>
     </div>
   );
