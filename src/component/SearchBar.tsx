@@ -11,7 +11,7 @@ const SearchBar = (): JSX.Element => {
       <input
         type='text'
         placeholder='San Francisco'
-        className='items-center w-3/4 px-1 text-lg text-center rounded-lg outline-none transition-all xs:w-2/5 focus:text-left xs:text-xl focus:w-4/5 h-3/4 focus:placeholder:opacity-0'
+        className='items-center w-3/4 px-1 text-lg text-center rounded-lg outline-none focus:ml-4 transition-all xs:w-2/5 focus:text-left xs:text-xl focus:w-4/5 h-3/4 focus:placeholder:opacity-0'
       />
     </div>
   );
