@@ -10,28 +10,75 @@ import Gallery from '../component/Gallery';
 import heroImage from '../public/img/sanFranciscoDesktop.jpg';
 import Image from 'next/image';
 import { cardInfoArray, pictureInfoArray } from '../utils/dbVars';
+import useContext from '../context/useAppContext';
 
 const Home: NextPage = () => {
 
-  const useCarouselRef = React.createRef <HTMLDivElement>();
+  // CAROUSEL BUTTONS NAVIGATION CONFIGURATION
+    // maybe this is not the best practice, at the moment is the only way I know though
+
+  const useCarouselRef: React.RefObject<HTMLDivElement> = React.useRef <HTMLDivElement>(null); //creating ref for carousel
+
+    //calling Context
+  const globalAppState = useContext();
+  const { state, changeState } = globalAppState;
+
+    //Setting behavior when resizing screen
+  function handleResize() {
+    if (useCarouselRef.current) {
+      if (useCarouselRef.current.offsetWidth === useCarouselRef.current.scrollWidth && state.carouselScroll === true) {
+        changeState({
+          ...state,
+          carouselScroll: false
+        });
+        useCarouselRef.current.scrollLeft = 0;
+      } else {
+        changeState({
+          ...state,
+          carouselScroll: true
+        });
+        useCarouselRef.current.scrollLeft = 0;
+      }
+    }
+  }
+
+    //Setting a conditional class for left and right Carousel buttons
+  const leftButtonCondClass = state.carouselScroll && state.carouselStartScroll ? 'inline-block' : 'hidden';
+  const rightButtonCondClass = state.carouselScroll && state.carouselEndScroll ? 'inline-block' : 'hidden';
+
+    //useEffect for setting an event listener on resize screen for showing or hidding left and right carousel buttons
+  React.useEffect(() => {
+    if (useCarouselRef.current) {
+      if (useCarouselRef.current.offsetWidth === useCarouselRef.current.scrollWidth && state.carouselScroll === true) {
+        changeState({
+          ...state,
+          carouselScroll: false
+        });
+      } else {
+        changeState({
+          ...state,
+          carouselScroll: true
+        });
+      }
+    }
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+     window.removeEventListener('resize', handleResize);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    //button behavior functions
   const scrollRight = () => {
     if (useCarouselRef.current) {
       useCarouselRef.current.scrollLeft += 150;
-      console.log('scrollWith: ', useCarouselRef.current.scrollWidth);
-      console.log('scrollLeft: ', useCarouselRef.current.scrollLeft);
-      console.log('scrolloffSetWith: ', useCarouselRef.current.offsetWidth);
-      console.log('Windows scroll X: ', window.innerWidth);
     }
-
   };
 
   const scrollLeft = () => {
     if (useCarouselRef.current) {
       useCarouselRef.current.scrollLeft -= 150;
-      console.log('scrollWith: ', useCarouselRef.current.scrollWidth);
-      console.log('scrollLeft: ', useCarouselRef.current.scrollLeft);
-      console.log('scrolloffSetWith: ', useCarouselRef.current.offsetWidth);
-      console.log('Windows scroll X: ', window.innerWidth);
     }
   };
 
@@ -52,15 +99,15 @@ const Home: NextPage = () => {
           <div className='flex justify-between'>
             <h1 className='mx-8 text-3xl font-bold text-primary'>Our Recomendations</h1>
             <div className='justify-center hidden w-auto sm:flex'>
-              <button className='inline-block w-10 mx-8 active:scale-75' onClick={scrollLeft}>
+            <button className={`w-10 mx-8 active:scale-75 ${leftButtonCondClass}`} onClick={scrollLeft} >
                 <MdOutlineArrowBackIos className='w-8 h-8 text-gray-500'/>
               </button>
-              <button className='inline-block w-10 mx-8 active:scale-75' onClick={scrollRight}>
+              <button className={`w-10 mx-8 active:scale-75 ${rightButtonCondClass}`} onClick={scrollRight} >
                 <MdOutlineArrowForwardIos className='w-8 h-8 text-gray-500'/>
               </button>
           </div>
           </div>
-          <Carousel cardsInfo={cardInfoArray} carouselRef={useCarouselRef} />
+          <Carousel cardsInfo={cardInfoArray} useCarouselRef={useCarouselRef} />
         </section>
 				<section className='w-full mt-8' id='trending'>
           <h1 className='mx-8 text-3xl font-bold text-primary'>Trending stays</h1>

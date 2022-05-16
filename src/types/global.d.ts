@@ -6,3 +6,20 @@ export type CardInfo = {
 }
 
 export type Picture = CardInfo;
+
+export type AuthTypeContext = {
+  state: {
+    theme: string;
+    carouselEndScroll: boolean;
+    carouselStartScroll: boolean;
+    carouselScroll: boolean;
+  },
+  changeState: (state: stateType) => void
+}
+
+export interface globalStateType {
+  theme: string;
+  carouselEndScroll: boolean;
+  carouselStartScroll: boolean;
+  carouselScroll: boolean;
+}
