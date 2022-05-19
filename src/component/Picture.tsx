@@ -1,8 +1,12 @@
 import * as React from 'react';
 import Image from 'next/image';
+import useContext from '../context/useAppContext';
 import { Picture } from '../types/global';
 
 const GalleryPicture = (props: Picture): JSX.Element => {
+
+  const { state } = useContext();
+  const titleCondClass = state.touchDevice ? 'active:cursor-pointer active:scale-105' : 'hover:cursor-pointer hover:scale-105 active:scale-95';
 
   const { title, subtitle, image, index } = props;
 
@@ -34,7 +38,7 @@ const GalleryPicture = (props: Picture): JSX.Element => {
       <div className={'w-full h-full rounded-3xl '}>
         <Image src={image} alt={`${title} image`} layout='fill' className='rounded-3xl' objectFit='cover'/>
       </div>
-      <h1 className='absolute mx-4 font-sans text-4xl font-bold text-white top-6 active:cursor-pointer active:scale-105 transition-all'>{ title }</h1>
+      <h1 className={`${titleCondClass} absolute mx-4 font-sans text-4xl font-bold text-white top-6  transition-all`}>{ title }</h1>
       <p className='absolute mx-4 font-sans text-2xl text-white aabsolute top-16'>{subtitle}</p>
     </div>
   );

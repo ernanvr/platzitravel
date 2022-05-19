@@ -7,12 +7,22 @@ type Props = {
 }
 
 const AppContextProvider = (props: Props) => {
+
   const [state, setState] = React.useState<globalStateType>({
     theme: 'light',
     carouselEndScroll: true,
     carouselStartScroll: false,
-    carouselScroll: true
+    carouselScroll: true,
+    touchDevice: false
   });
+
+  React.useEffect(() => {
+
+    if (typeof window !== 'undefined') {
+      navigator.maxTouchPoints > 0 ? setState({ ...state, touchDevice: true }) : false;
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   function changeState(state: globalStateType) {
     setState(state);

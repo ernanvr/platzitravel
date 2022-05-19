@@ -1,1 +1,2 @@
 3. Set hover and active animation for mobile and desktop devices
+4. Dark theme

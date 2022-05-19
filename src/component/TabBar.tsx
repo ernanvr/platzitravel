@@ -1,28 +1,34 @@
 import * as React from 'react';
 import { FaHome, FaSearch, FaHeart, FaUserAlt } from 'react-icons/fa';
 import Link from 'next/link';
+import useContext from '../context/useAppContext';
 
 const TabBar = (): JSX.Element => {
+
+  const { state } = useContext();
+
+  const iconsHoverBehavior = state.touchDevice ? 'active:text-red-500 active:scale-95' : 'hover:text-red-500 active:scale-95';
+
   return (
     <nav className='fixed bottom-0 flex items-center w-full h-24 text-gray-200 bg-white justify-evenly sm:hidden'>
       <Link href='#home'>
         <a>
-          <FaHome className='active:text-red-500 focus:text-red-500 active:transition-all' size={24} />
+          <FaHome className={`transition-all ${iconsHoverBehavior}`} size={24} />
         </a>
       </Link>
       <Link href='#search'>
         <a>
-          <FaSearch className='active:text-red-500 focus:text-red-500 active:transition-all' size={24} />
+          <FaSearch className={`transition-all ${iconsHoverBehavior}`} size={24} />
         </a>
       </Link>
       <Link href='/'>
         <a>
-          <FaHeart className='active:text-red-500 focus:text-red-500 active:transition-all' size={24} />
+          <FaHeart className={`transition-all ${iconsHoverBehavior}`} size={24} />
         </a>
       </Link>
       <Link href='/'>
         <a>
-          <FaUserAlt className='active:text-red-500 focus:text-red-500 active:transition-all' size={24} />
+          <FaUserAlt className={`transition-all ${iconsHoverBehavior}`} size={24} />
         </a>
       </Link>
     </nav>

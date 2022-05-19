@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export type CardInfo = {
   index: number,
   title: string,
@@ -13,6 +15,7 @@ export type AuthTypeContext = {
     carouselEndScroll: boolean;
     carouselStartScroll: boolean;
     carouselScroll: boolean;
+    touchDevice: boolean;
   },
   changeState: (state: stateType) => void
 }
@@ -22,4 +25,5 @@ export interface globalStateType {
   carouselEndScroll: boolean;
   carouselStartScroll: boolean;
   carouselScroll: boolean;
+  touchDevice: boolean;
 }

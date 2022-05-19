@@ -6,7 +6,8 @@ export const defaultValue: AuthTypeContext = {
     theme: 'light',
     carouselEndScroll: false,
     carouselStartScroll: true,
-    carouselScroll: true
+    carouselScroll: true,
+    touchDevice: false
   },
   changeState: () => {}
 };

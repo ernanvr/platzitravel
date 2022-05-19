@@ -16,8 +16,10 @@ const Carousel = (props: Props) => {
   const { cardsInfo, useCarouselRef } = props;
 
   const handleScroll = () => {
-    if (useCarouselRef.current) {
+    if (useCarouselRef.current && !navigator.maxTouchPoints) {
+
       const { scrollLeft, scrollWidth, offsetWidth } = useCarouselRef.current;
+      console.log('scrollLeft', Math.ceil(scrollLeft), 'offsetWidth', offsetWidth, 'scrollWidth', scrollWidth);
       scrollLeft > 0 && !carouselStartScroll ?
         changeState({
           ...state,
@@ -28,13 +30,12 @@ const Carousel = (props: Props) => {
           ...state,
           carouselStartScroll: false,
         }) :
-        false;
-      scrollLeft + offsetWidth === scrollWidth && carouselEndScroll ?
+      Math.ceil(scrollLeft) + offsetWidth === scrollWidth && carouselEndScroll ?
         changeState({
           ...state,
           carouselEndScroll: false
           }) :
-      scrollLeft + offsetWidth !== scrollWidth && !carouselEndScroll ?
+      Math.ceil(scrollLeft) + offsetWidth !== scrollWidth && !carouselEndScroll ?
         changeState({
           ...state,
           carouselEndScroll: true
@@ -43,10 +44,12 @@ const Carousel = (props: Props) => {
     }
   };
 
+  const carouselScrollBehavior = state.touchDevice ? 'overflow-x-auto' : 'overflow-x-auto xs:overflow-hidden';
+
   const buildCarousel = (): JSX.Element[] => cardsInfo.map((cardsInfo, index) => <Card index={index} key={index} title={cardsInfo.title} subtitle={cardsInfo.subtitle} image={cardsInfo.image}/>);
 
   return (
-    <div className='flex w-full mt-4 overflow-x-auto justify-left translate-all scroll-smooth sm:overflow-hidden' ref={useCarouselRef} onScroll={handleScroll}>
+    <div className={`relative flex w-full mt-4 justify-left translate-all scroll-smooth ${carouselScrollBehavior}`} ref={useCarouselRef} onScroll={handleScroll}>
       {buildCarousel()}
     </div>
   );
