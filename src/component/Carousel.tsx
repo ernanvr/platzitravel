@@ -19,7 +19,7 @@ const Carousel = (props: Props) => {
     if (useCarouselRef.current && !navigator.maxTouchPoints) {
 
       const { scrollLeft, scrollWidth, offsetWidth } = useCarouselRef.current;
-      console.log('scrollLeft', Math.ceil(scrollLeft), 'offsetWidth', offsetWidth, 'scrollWidth', scrollWidth);
+      // console.log('scrollLeft', Math.ceil(scrollLeft), 'offsetWidth', offsetWidth, 'scrollWidth', scrollWidth);
       scrollLeft > 0 && !carouselStartScroll ?
         changeState({
           ...state,
