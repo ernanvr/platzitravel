@@ -5,9 +5,11 @@ import AppContextProvider from '../context/appContextProvider';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <AppContextProvider>
-      <Component {...pageProps} />
-    </AppContextProvider>
+    <div className='dark:bg-gray-900'>
+      <AppContextProvider>
+        <Component {...pageProps} />
+      </AppContextProvider>
+    </div>
   );
 }
 

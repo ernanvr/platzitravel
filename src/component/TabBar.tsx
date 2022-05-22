@@ -7,10 +7,10 @@ const TabBar = (): JSX.Element => {
 
   const { state } = useContext();
 
-  const iconsHoverBehavior = state.touchDevice ? 'active:text-red-500 active:scale-95' : 'hover:text-red-500 active:scale-95';
+  const iconsHoverBehavior = state.touchDevice ? 'active:text-red-500 active:scale-95 dark:active:text-gray-500 dark:text-white' : 'hover:text-red-500 active:scale-95 dark:text-white dark:hover:text-gray-500';
 
   return (
-    <nav className='fixed bottom-0 flex items-center w-full h-24 text-gray-200 bg-white justify-evenly sm:hidden'>
+    <nav className='fixed bottom-0 flex items-center w-full h-24 bg-white justify-evenly sm:hidden dark:bg-gray-800'>
       <Link href='#home'>
         <a>
           <FaHome className={`transition-all ${iconsHoverBehavior}`} size={24} />

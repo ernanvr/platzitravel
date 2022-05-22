@@ -9,10 +9,10 @@ type Props = {
 const AppContextProvider = (props: Props) => {
 
   const [state, setState] = React.useState<globalStateType>({
-    theme: 'light',
+    theme: '',
     carouselEndScroll: true,
     carouselStartScroll: false,
-    carouselScroll: true,
+    carouselScroll: false,
     touchDevice: false
   });
 

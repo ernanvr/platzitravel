@@ -9,7 +9,7 @@ const Card = (props: CardInfo) => {
 
   const { state } = useContext();
 
-  const cardsBgTheme = index % 2 === 0 ? 'bg-secondary' : 'bg-white';
+  const cardsBgTheme = index % 2 === 0 ? 'bg-secondary dark:bg-gray-700' : 'bg-white dark:bg-gray-800';
   const cardsFontTheme = index % 2 === 0 ? 'text-white' : 'text-tertiary';
   const cardHoverBehavior = state.touchDevice ? 'active:translate-y-4 active:scale-105' : 'hover:translate-y-4 hover:scale-105 active:scale-95';
 
@@ -19,8 +19,8 @@ const Card = (props: CardInfo) => {
         <Image src={image} alt={`${title} image`} layout='responsive' className='rounded-t-xl' />
       </div>
       <div className={`flex flex-col items-left justify-center ${cardsBgTheme} rounded-b-xl h-1/2`}>
-        <h1 className={`font-semibold text-1xl ml-4 ${cardsFontTheme}`}>{title}</h1>
-        <p className={`text-lg ml-4 ${cardsFontTheme}`}>{subtitle}</p>
+        <h1 className={`font-semibold text-1xl ml-4 ${cardsFontTheme} dark:text-white`}>{title}</h1>
+        <p className={`text-lg ml-4 ${cardsFontTheme} dark:text-gray-300`}>{subtitle}</p>
       </div>
     </div>
   );

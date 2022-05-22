@@ -30,12 +30,12 @@ const Carousel = (props: Props) => {
           ...state,
           carouselStartScroll: false,
         }) :
-      Math.ceil(scrollLeft) + offsetWidth === scrollWidth && carouselEndScroll ?
+      Math.ceil(scrollLeft) + offsetWidth >= scrollWidth && carouselEndScroll ?
         changeState({
           ...state,
           carouselEndScroll: false
           }) :
-      Math.ceil(scrollLeft) + offsetWidth !== scrollWidth && !carouselEndScroll ?
+      Math.ceil(scrollLeft) + offsetWidth < scrollWidth && !carouselEndScroll ?
         changeState({
           ...state,
           carouselEndScroll: true

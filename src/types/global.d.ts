@@ -1,5 +1,3 @@
-import * as React from 'react';
-
 export type CardInfo = {
   index: number,
   title: string,

@@ -1,42 +1,49 @@
 import * as React from 'react';
 import { HiMoon, HiSearch, HiUser } from 'react-icons/hi';
+import { FaToggleOn } from 'react-icons/fa';
 import Link from 'next/link';
 import useContext from '../context/useAppContext';
+import { toggleDarkMode } from '../utils/changeThemeFunction';
 
 const Header = (): JSX.Element => {
 
-  const { state } = useContext();
+  const { state, changeState } = useContext();
+  const changeTheme = () => {
+    toggleDarkMode({ state, changeState });
+  };
 
-  const navHoverBehavior = state.touchDevice ? 'active:border-b-2 active:border-red-500' : 'hover:border-b-2 hover:border-red-500 active:scale-95';
+  const navHoverBehavior = state.touchDevice ? 'active:border-b-2 active:border-red-500 dark:active:border-white' : 'hover:border-b-2 hover:border-red-500 dark:hover:border-white active:scale-95';
 
   return (
-    <header className='fixed top-0 z-20 hidden w-full h-16 text-xl bg-white transition-all md:text-2xl sm:flex md:items-center flex-column'>
-      <nav className='flex items-center justify-between w-full h-full mx-8 '>
+    <header className={'fixed top-0 z-20 hidden w-full h-16 text-xl bg-white dark:bg-gray-900 transition md:text-2xl sm:flex md:items-center sm:flex-column dark:text-white'}>
+      <nav className='flex items-center justify-between w-full h-full mx-8 dark:text-white '>
         <div>
-          <Link href='/'><a className={`font-semibold transition-all text-primary ${navHoverBehavior}`}>Platzi Travel</a></Link>
+          <Link href='/'><a className={`font-semibold transition-all text-primary ${navHoverBehavior} dark:text-white`}>Platzi Travel</a></Link>
         </div>
-        <div className='flex items-center justify-center'>
-          <Link href='#recomendations'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior}`}>Locations</a></Link>
-          <Link href='#trending'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior}`}>Stays</a></Link>
-          <Link href='#faqs'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior}`}>FAQs</a></Link>
-          <Link href='#footer'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior}`}>About us</a></Link>
+        <div className='flex items-center justify-center dark:text-white'>
+          <Link href='#recomendations'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}>Locations</a></Link>
+          <Link href='#trending'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}>Stays</a></Link>
+          <Link href='#faqs'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}>FAQs</a></Link>
+          <Link href='#footer'><a className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}>About us</a></Link>
         </div>
           <div className='flex justify-center'>
-            <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior}`}>
+            <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}>
               <Link href='/'>
                 <a>
                   <HiSearch className='w-full h-full'/>
                 </a>
               </Link>
             </div>
-            <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior}`} >
-              <Link href='/'>
-                <a>
-                  <HiMoon className='w-full h-full'/>
-                </a>
-              </Link>
+          {
+            state.theme === '' ?
+            <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`} >
+              <HiMoon className='w-full h-full cursor-pointer' onClick={changeTheme}/>
+            </div> :
+            <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`} >
+              <FaToggleOn className='w-full h-full cursor-pointer' onClick={changeTheme} />
             </div>
-              <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior}`}>
+          }
+              <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}>
                 <Link href='/'>
                   <a>
                     <HiUser className='w-full h-full'/>

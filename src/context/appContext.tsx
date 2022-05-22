@@ -3,7 +3,7 @@ import { AuthTypeContext } from '../types/global';
 
 export const defaultValue: AuthTypeContext = {
   state: {
-    theme: 'light',
+    theme: '',
     carouselEndScroll: false,
     carouselStartScroll: true,
     carouselScroll: true,
