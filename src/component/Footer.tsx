@@ -8,11 +8,10 @@ const Footer: React.FC = () => {
 
 	return (
     <>
-		<footer id='footer' className='text-gray-300 bg-gray-50 border-y-[1px] border-gray-100'>
+		<footer id='footer' className='text-gray-900 bg-gray-50 border-y-[1px] border-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:text-white'>
 			<h1 className='mx-8 mt-4 mb-4 text-3xl font-medium'>About us</h1>
-
-      <div className='flex mx-8 flex-col justify-start text-[1.4rem] leading-10'>
-        <Link href='/'><a>Investors</a></Link>
+      <div className='inline-flex mx-8 flex-col justify-start text-[1.4rem] leading-10 '>
+        <Link href='/'><a className=''>Investors</a></Link>
         <Link href='/'><a>Jobs</a></Link>
         <Link href='/'><a>Privacy Policy</a></Link>
         <Link href='/'><a>Terms and Conditions</a></Link>

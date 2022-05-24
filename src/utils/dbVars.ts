@@ -6,7 +6,7 @@ import chicago from '../public/img/chicago.jpg';
 import la from '../public/img/LA.jpg';
 import miami from '../public/img/miami.jpg';
 import bali from '../public/img/bali.jpg';
-import seattle from '../public/img/seattle.jpg';
+import sidney from '../public/img/sydney.jpg';
 import switzerland from '../public/img/switzerland.jpg';
 
 export const cardInfoArray: CardInfo[] = [
@@ -30,9 +30,9 @@ export const cardInfoArray: CardInfo[] = [
   },
   {
     index: 0,
-    title: 'Seattle',
+    title: 'Sidney',
     subtitle: 'Big city',
-    image: seattle
+    image: sidney
   },
   {
     index: 0,

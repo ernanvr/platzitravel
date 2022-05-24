@@ -15,8 +15,8 @@ const Card = (props: CardInfo) => {
 
   return (
     <div className={`min-w-[15.4rem] relative first:ml-8 hover:cursor-pointer min-h-[18.7rem] mx-4 shadow-md mb-8 my-2 sm:min-h-[25.7rem] sm:min-w-[22.4rem] transition-all ${cardHoverBehavior}`}>
-      <div className='relative w-full h-1/2 rounded-2xl'>
-        <Image src={image} alt={`${title} image`} layout='responsive' className='rounded-t-xl' />
+      <div className='relative w-full h-1/2 rounded-2xl '>
+        <Image src={image} alt={`${title} image`} layout='fill' className='object-cover object-[50%_60%] rounded-t-xl' />
       </div>
       <div className={`flex flex-col items-left justify-center ${cardsBgTheme} rounded-b-xl h-1/2`}>
         <h1 className={`font-semibold text-1xl ml-4 ${cardsFontTheme} dark:text-white`}>{title}</h1>

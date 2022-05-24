@@ -3,7 +3,7 @@ import * as React from 'react';
 import Layout from '../containers/Layout';
 import SearchBar from '../component/SearchBar';
 import { HiMoon } from 'react-icons/hi';
-import { FaToggleOn } from 'react-icons/fa';
+import { BsFillSunFill } from 'react-icons/bs';
 import { MdOutlineArrowBackIos, MdOutlineArrowForwardIos } from 'react-icons/md';
 import PrimaryButton from '../component/PrimaryButton';
 import Carousel from '../component/Carousel';
@@ -26,9 +26,15 @@ const Home: NextPage = () => {
   const useCarouselRef: React.RefObject<HTMLDivElement> = React.useRef <HTMLDivElement>(null);
 
     //Setting a conditional class for left and right Carousel buttons
-  const leftButtonCondClass = state.carouselScroll && state.carouselStartScroll && !state.touchDevice ? 'inline-block' : 'hidden';
-  const rightButtonCondClass = state.carouselScroll && state.carouselEndScroll && !state.touchDevice ? 'inline-block' : 'hidden';
-  const buttonsContainerCondClass = state.carouselScroll && state.carouselEndScroll && state.touchDevice ? 'hidden' : 'xs:flex';
+  const leftButtonCondClass = state.carouselScroll && state.carouselStartScroll && !state.touchDevice ?
+    'inline-block' :
+    'hidden';
+  const rightButtonCondClass = state.carouselScroll && state.carouselEndScroll && !state.touchDevice ?
+    'inline-block' :
+    'hidden';
+  const buttonsContainerCondClass = state.carouselScroll && state.carouselEndScroll && state.touchDevice ?
+    'hidden' :
+    'xs:flex';
 
     //Carousel Section button behavior functions
   const scrollRight = () => {
@@ -108,7 +114,6 @@ const Home: NextPage = () => {
     return () => {
      window.removeEventListener('resize', handleResize);
     };
-
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
@@ -118,10 +123,10 @@ const Home: NextPage = () => {
           <div className={'w-full h-full relative'}>
             <Image src={heroImage} alt={'san Francisco hero image'} layout='fill' objectFit='cover' priority/>
           </div>
-					<div className='absolute flex items-center justify-center w-24 h-12 bg-white rounded-3xl top-10 transition-all right-5 sm:hidden dark:bg-gray-800'>
+					<div className='absolute flex items-center justify-center w-24 h-12 transition-all bg-white rounded-3xl top-10 right-5 sm:hidden dark:bg-gray-800'>
           {state.theme === '' ?
 						<HiMoon className='text-primary' size={24} onClick={changeTheme}/> :
-						<FaToggleOn className='text-primary dark:text-white' size={24} onClick={changeTheme}/>
+						<BsFillSunFill className='text-primary dark:text-white' size={24} onClick={changeTheme}/>
           }
 					</div>
 					<SearchBar />
@@ -130,7 +135,7 @@ const Home: NextPage = () => {
 				</section>
 				<section className={'w-full mt-8  dark:text-white'} id='recomendations'>
           <div className='flex justify-between'>
-            <h1 className='mx-8 text-3xl font-bold text-primary dark:text-white'>Our Recomendations</h1>
+            <h1 className={'mx-8 text-3xl font-bold text-primary dark:text-white'}>Our Recomendations</h1>
             <div className={`justify-center transition w-auto ${buttonsContainerCondClass}`}>
               <button className={`w-10 mx-8 active:scale-75 transition-all ${leftButtonCondClass}`} onClick={scrollLeft} >
                   <MdOutlineArrowBackIos className='w-8 h-8 text-gray-500'/>
@@ -147,13 +152,13 @@ const Home: NextPage = () => {
           <Gallery picturesInfo={pictureInfoArray} />
         </section>
 				<section className={'w-full mt-4 font-semibold  dark:text-white'} id='faqs'>
-          <h1 className='mx-8 my-4 text-3xl font-bold text-primary dark:text-white'> FAQs</h1>
-          <h2 className='mx-8 my-4 text-2xl text-primary dark:text-white'>How can I pay?</h2>
-          <p className='mx-8 my-4 dark:text-gray-400'>We accept VISA, Mastercard, American Express, Paypal and Binance</p>
-          <h2 className='mx-8 my-4 text-2xl text-primary dark:text-white'>How much time before may I cancel reservation?</h2>
-          <p className='mx-8 my-4 dark:text-gray-400'>Cancellation 24h before reservation has not any charges</p>
-          <h2 className='mx-8 my-4 text-2xl text-primary dark:text-white'>Are there special discounts?</h2>
-          <p className='mx-8 my-4 dark:text-gray-400'>Yes, we provide special discounts to our customers who visit us every year</p>
+          <h1 className={'mx-8 my-4 text-3xl font-bold text-primary dark:text-white'}> FAQs</h1>
+          <h2 className={'mx-8 my-4 text-2xl text-primary dark:text-white'}>How can I pay?</h2>
+          <p className={'mx-8 my-4 dark:text-gray-400'}>We accept VISA, Mastercard, American Express, Paypal and Binance</p>
+          <h2 className={'mx-8 my-4 text-2xl text-primary dark:text-white'}>How much time before may I cancel reservation?</h2>
+          <p className={'mx-8 my-4 dark:text-gray-400'}>Cancellation 24h before reservation has not any charges</p>
+          <h2 className={'mx-8 my-4 text-2xl text-primary dark:text-white'}>Are there special discounts?</h2>
+          <p className={'mx-8 my-4 dark:text-gray-400'}>Yes, we provide special discounts to our customers who visit us every year</p>
         </section>
     </Layout>
   );

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { HiMoon, HiSearch, HiUser } from 'react-icons/hi';
-import { FaToggleOn } from 'react-icons/fa';
+import { BsFillSunFill } from 'react-icons/bs';
 import Link from 'next/link';
 import useContext from '../context/useAppContext';
 import { toggleDarkMode } from '../utils/changeThemeFunction';
@@ -40,7 +40,7 @@ const Header = (): JSX.Element => {
               <HiMoon className='w-full h-full cursor-pointer' onClick={changeTheme}/>
             </div> :
             <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`} >
-              <FaToggleOn className='w-full h-full cursor-pointer' onClick={changeTheme} />
+              <BsFillSunFill className='w-full h-full cursor-pointer' onClick={changeTheme} />
             </div>
           }
               <div className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}>
