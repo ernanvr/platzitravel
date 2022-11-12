@@ -11,10 +11,6 @@ const Header = (): JSX.Element => {
     toggleDarkMode({ state, changeState })
   }
 
-  const navHoverBehavior = state.touchDevice
-    ? 'active:border-b-2 active:border-red-500 dark:active:border-white'
-    : 'hover:border-b-2 hover:border-red-500 dark:hover:border-white active:scale-95'
-
   return (
     <header
       className={
@@ -23,57 +19,25 @@ const Header = (): JSX.Element => {
     >
       <nav className="flex items-center justify-between w-full h-full mx-8 dark:text-white ">
         <div>
-          <Link href="/">
-            <a
-              className={`font-semibold transition-all text-primary ${navHoverBehavior} dark:text-white`}
-            >
-              Platzi Travel
-            </a>
-          </Link>
+          <Link href="/">Platzi Travel</Link>
         </div>
         <div className="flex items-center justify-center dark:text-white">
-          <Link href="#recomendations">
-            <a
-              className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}
-            >
-              Locations
-            </a>
-          </Link>
-          <Link href="#trending">
-            <a
-              className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}
-            >
-              Stays
-            </a>
-          </Link>
-          <Link href="#faqs">
-            <a
-              className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}
-            >
-              FAQs
-            </a>
-          </Link>
-          <Link href="#footer">
-            <a
-              className={`mx-8 font-semibold transition-all sm:mx-4 text-primary ${navHoverBehavior} dark:text-white`}
-            >
-              About us
-            </a>
-          </Link>
+          <Link href="#recomendations">Locations</Link>
+          <Link href="#trending">Stays</Link>
+          <Link href="#faqs">FAQs</Link>
+          <Link href="#footer">About us</Link>
         </div>
         <div className="flex justify-center">
           <div
-            className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}
+            className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all  dark:text-white`}
           >
             <Link href="/">
-              <a>
-                <HiSearch className="w-full h-full" />
-              </a>
+              <HiSearch className="w-full h-full" />
             </Link>
           </div>
           {state.theme === '' ? (
             <div
-              className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}
+              className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all dark:text-white`}
             >
               <HiMoon
                 className="w-full h-full cursor-pointer"
@@ -82,7 +46,7 @@ const Header = (): JSX.Element => {
             </div>
           ) : (
             <div
-              className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}
+              className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all  dark:text-white`}
             >
               <BsFillSunFill
                 className="w-full h-full cursor-pointer"
@@ -91,12 +55,10 @@ const Header = (): JSX.Element => {
             </div>
           )}
           <div
-            className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all ${navHoverBehavior} dark:text-white`}
+            className={`w-8 h-8 mx-4 text-red-700 md:w-10 md:h-10 transition-all dark:text-white`}
           >
             <Link href="/">
-              <a>
-                <HiUser className="w-full h-full" />
-              </a>
+              <HiUser className="w-full h-full" />
             </Link>
           </div>
         </div>

@@ -1,36 +1,32 @@
 import * as React from 'react'
 import Image from 'next/image'
 import { CardInfo } from '../types/global'
-import useContext from '../context/useAppContext'
 
 const Card = (props: CardInfo) => {
-  const { index, title, subtitle, image } = props
-
-  const { state } = useContext()
+  const { index, title, subtitle, image, count } = props
 
   const cardsBgTheme =
     index % 2 === 0
       ? 'bg-secondary dark:bg-gray-700'
       : 'bg-white dark:bg-gray-800'
   const cardsFontTheme = index % 2 === 0 ? 'text-white' : 'text-tertiary'
-  const cardHoverBehavior = state.touchDevice
-    ? 'active:translate-y-4 active:scale-105'
-    : 'hover:translate-y-4 hover:scale-105 active:scale-95'
+  const margin = index === 0 ? 'mr-4' : index === count - 1 ? 'ml-4' : 'mx-4'
 
   return (
     <div
-      className={`min-w-[15.4rem] relative first:ml-8 hover:cursor-pointer min-h-[18.7rem] mx-4 shadow-md mb-8 my-2 sm:min-h-[25.7rem] sm:min-w-[22.4rem] transition-all ${cardHoverBehavior}`}
+      className={`shadow-md inline-flex items-center ${margin} sm:h-96 h-80 flex-col md:w-80 sm:w-72 w-56 xs:w-64 rounded-2xl mb-2`}
     >
-      <div className="relative w-full h-1/2 rounded-2xl ">
+      <div className="relative w-full h-full">
         <Image
           src={image}
           alt={`${title} image`}
-          layout="fill"
-          className="object-cover object-[50%_60%] rounded-t-xl"
+          fill
+          sizes="30vw"
+          className="object-cover rounded-t-xl"
         />
       </div>
       <div
-        className={`flex flex-col items-left justify-center ${cardsBgTheme} rounded-b-xl h-1/2`}
+        className={`${cardsBgTheme} rounded-b-xl w-full h-48 flex flex-col justify-center`}
       >
         <h1
           className={`font-semibold text-1xl ml-4 ${cardsFontTheme} dark:text-white`}

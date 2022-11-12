@@ -1,9 +1,8 @@
-import * as React from 'react';
-import appContext from './appContext';
+import * as React from 'react'
+import appContext from './appContext'
 
 function useContext() {
-  return React.useContext(appContext);
+  return React.useContext(appContext)
 }
 
-export default useContext;
-
+export default useContext

@@ -12,24 +12,12 @@ const Footer: React.FC = () => {
       >
         <h1 className="mx-8 mt-4 mb-4 text-3xl font-medium">About us</h1>
         <div className="inline-flex mx-8 flex-col justify-start text-[1.4rem] leading-10 ">
-          <Link href="/">
-            <a className="">Investors</a>
-          </Link>
-          <Link href="/">
-            <a>Jobs</a>
-          </Link>
-          <Link href="/">
-            <a>Privacy Policy</a>
-          </Link>
-          <Link href="/">
-            <a>Terms and Conditions</a>
-          </Link>
-          <Link href="/">
-            <a>Platzi Travel, Inc</a>
-          </Link>
-          <Link href="/">
-            <a>Follow us</a>
-          </Link>
+          <Link href="/">Investors</Link>
+          <Link href="/">Jobs</Link>
+          <Link href="/">Privacy Policy</Link>
+          <Link href="/">Terms and Conditions</Link>
+          <Link href="/">Platzi Travel, Inc</Link>
+          <Link href="/">Follow us</Link>
         </div>
         <div className="flex justify-start mx-8 mt-4 mb-28 sm:mb-4">
           <FaTwitter size={20} className="mr-4" />
