@@ -6,7 +6,12 @@ export type CardInfo = {
   count: number
 }
 
-export type Picture = CardInfo
+export type Picture = {
+  index: number
+  title: string
+  subtitle: string
+  image: string | StaticImageData
+}
 
 export type AuthTypeContext = {
   state: {
