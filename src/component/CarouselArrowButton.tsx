@@ -1,15 +1,17 @@
 import * as React from 'react'
 import { BsArrowLeftSquareFill, BsArrowRightSquareFill } from 'react-icons/bs'
 import { Arrow } from '../types/ArrowEnum'
+import { Params } from '../utils/customHooks/useCarouselLogic'
 
 type Props = {
   typeOfButton: Arrow.Left | Arrow.Right
   reference: React.RefObject<HTMLDivElement>
-  buttonFunction: () => void
+  buttonFunction: (params: Params) => void
+  parameters: Params
 }
 
 const CarouselArrowButton = (props: Props): JSX.Element => {
-  const { typeOfButton, reference, buttonFunction } = props
+  const { typeOfButton, reference, buttonFunction, parameters } = props
   const gradientDirection =
     typeOfButton === Arrow.Left ? 'bg-gradient-to-r' : 'bg-gradient-to-l'
 
@@ -18,7 +20,7 @@ const CarouselArrowButton = (props: Props): JSX.Element => {
       className={`flex flex-col rounded-xl justify-center from-black/50 to-transparent ${gradientDirection}`}
       ref={reference}
     >
-      <button className="" onClick={() => buttonFunction()}>
+      <button className="" onClick={() => buttonFunction(parameters)}>
         {typeOfButton === Arrow.Left ? (
           <BsArrowLeftSquareFill
             size={32}

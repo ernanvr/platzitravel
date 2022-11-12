@@ -1,4 +1,4 @@
-import { CardInfo, Picture } from '../types/global'
+import { CardDetails, Picture } from '../types/global'
 import norway from '../public/img/norway.jpg'
 import newyork from '../public/img/new_york.jpg'
 import yosemite from '../public/img/yosemite.jpg'
@@ -9,7 +9,7 @@ import bali from '../public/img/bali.jpg'
 import sidney from '../public/img/sydney.jpg'
 import switzerland from '../public/img/switzerland.jpg'
 
-export const cardInfoArray: CardInfo[] = [
+export const cardInfoArray: CardDetails[] = [
   {
     index: 0,
     title: 'Norway',

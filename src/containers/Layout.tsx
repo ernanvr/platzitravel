@@ -1,19 +1,19 @@
-import * as React from 'react';
-import Header from '../component/Header';
-import Footer from '../component/Footer';
+import * as React from 'react'
+import Header from '../component/Header'
+import Footer from '../component/Footer'
 
 type Props = {
-	children: React.ReactChild[]
+  children: React.ReactChild[]
 }
 
 const Layout = (props: Props): JSX.Element => {
-	return (
-		<>
-			<Header />
-			{ props.children }
-			<Footer />
-		</>
-	);
-};
+  return (
+    <>
+      <Header />
+      {props.children}
+      <Footer />
+    </>
+  )
+}
 
-export default Layout;
+export default Layout

@@ -8,8 +8,7 @@ type Props = {
 
 const AppContextProvider = (props: Props) => {
   const [state, setState] = React.useState<globalStateType>({
-    theme: '',
-    activeIndex: 0
+    theme: ''
   })
 
   function changeState(state: globalStateType) {
