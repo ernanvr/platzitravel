@@ -3,7 +3,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 
 type Props = {
-  children: React.ReactChild[]
+  children: React.ReactChild[] | React.ReactChild
 }
 
 const Layout = (props: Props): JSX.Element => {

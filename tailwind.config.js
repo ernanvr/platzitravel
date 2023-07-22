@@ -1,5 +1,8 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const defaultTheme = require('tailwindcss/defaultTheme')
+const primary = '#CC2D4A'
+const secondary = '#8FA206'
+const tertiary = '#61AEC9'
 
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
@@ -28,17 +31,22 @@ module.exports = {
       },
       backgroundColor: theme => ({
         ...theme('colors'),
-        primary: '#CC2D4A',
-        secondary: '#8FA206',
-        tertiary: '#61AEC9'
+        primary,
+        secondary,
+        tertiary
       }),
       textColor: {
-        primary: '#CC2D4A',
-        secondary: '#8FA206',
-        tertiary: '#61AEC9'
+        primary,
+        secondary,
+        tertiary
       },
       fontFamily: {
         sans: ['Montserrat', defaultTheme.fontFamily.sans]
+      },
+      colors: {
+        primary,
+        secondary,
+        tertiary
       }
     }
   },
